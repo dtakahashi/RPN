@@ -1,0 +1,4 @@
+stack:256
+stack:65534
+stack:8172
+stack:1024

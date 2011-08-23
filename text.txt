@@ -1,0 +1,12 @@
+nop
+push 256
+print
+push 2048
+push 2048
++
+push 312
+push 512
+-
+print
+print
+nop
