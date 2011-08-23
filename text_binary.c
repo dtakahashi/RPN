@@ -15,11 +15,15 @@ int main(int argc, char *argv[])
     in_file = fopen(argv[1], "r");
     if(in_file == NULL)
     {
-        fprintf(stderr, "Error file not found\n");
+        fprintf(stderr, "Error :File not found\n");
         exit(1);
     }
     out_file = fopen(argv[2], "wb");
-    
+    if(out_file == NULL)
+    {
+        fprintf(stderr, "Error :File not found\n");
+        exit(1);
+    }
     while(fgets(buf, 256, in_file) != NULL)
     {
         if(strcmp(buf, "nop\n") == 0){

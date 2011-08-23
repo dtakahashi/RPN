@@ -15,10 +15,21 @@ int main(int argc, char *argv[])
     }
 
     in_file=fopen(argv[1], "rb");
-    out_file=fopen(argv[2], "w");
-  
+    if(in_file == NULL)
+    {
+        fprintf(stderr, "The file doesn't exist\n");
+        exit(1);
+    }
+
     n = fread(buf, sizeof(unsigned short), 100, in_file);
-        
+    fclose(in_file);
+
+    out_file=fopen(argv[2], "w");
+    if(out_file ==NULL)
+    {
+        fprintf(stderr, "The file doesn't exist\n");
+        exit(1);
+    }
     for(i = 0; i < n; i++){
         switch(buf[i]){
         case NOP:
@@ -56,7 +67,6 @@ int main(int argc, char *argv[])
         }
     }
     
-    fclose(in_file);
     fclose(out_file);
     return (0);
 }
