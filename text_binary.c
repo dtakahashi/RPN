@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "mystring.h"
 #include "enume.h"
 
 int main(int argc, char *argv[])
@@ -46,13 +47,13 @@ int main(int argc, char *argv[])
             fputc(MINUS, out_file);
             fputc(0, out_file);
         }else if(strcmp(buf, "*\n") == 0){
-            fputc(SEKI, out_file);
+            fputc(MULTI, out_file);
             fputc(0, out_file);
         }else if(strcmp(buf, "/\n") ==0){
-            fputc(WARI, out_file);
+            fputc(DIVI, out_file);
             fputc(0, out_file);
         }else if(strcmp(buf, "%\n") == 0){
-            fputc(AMARI, out_file);
+            fputc(MOD, out_file);
             fputc(0, out_file);
         }else{
             printf("********************error %s\n", buf);

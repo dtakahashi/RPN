@@ -52,13 +52,13 @@ int main(int argc, char *argv[])
         case MINUS:
             fprintf(out_file, "-\n");
             break;
-        case SEKI:
+        case MULTI:
             fprintf(out_file, "*\n");
             break;
-        case WARI:
+        case DIVI:
             fprintf(out_file, "/\n");
             break;
-        case AMARI:
+        case MOD:
             fprintf(out_file, "%\n");
             break;
         default :

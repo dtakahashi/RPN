@@ -35,17 +35,17 @@ void stack_func(FILE *in_file)
             num2 = stack_pop();
             stack_push(num2 - num1);
             break;
-        case SEKI:
+        case MULTI:
             num1 = stack_pop();
             num2 = stack_pop();
             stack_push(num1 * num2);
             break;
-        case WARI:
+        case DIVI:
             num1 = stack_pop();
             num2 = stack_pop();
             stack_push(num2 / num1);
             break;
-        case AMARI:
+        case MOD:
             num1 = stack_pop();
             num2 = stack_pop();
             stack_push(num2 % num1);

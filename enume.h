@@ -5,7 +5,7 @@ enum binary{
     PRINT,
     PLUS,
     MINUS,
-    SEKI,
-    WARI,
-    AMARI
+    MULTI,
+    DIVI,
+    MOD
 };
