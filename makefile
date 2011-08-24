@@ -1,4 +1,4 @@
-OBJS = main.o stac.o stac_func.o
+OBJS = main.o stac.o stac_func.o another_func.o save.o load.o line.o file_rect.o rectangle_func.o tri.o
 TARGET ?= binary_stac
 CC ?= gcc
 CFLAGS += -O

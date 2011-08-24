@@ -1,0 +1,5 @@
+img:line 10 10 20 30 100
+img:save 1
+img:init
+img:load 1
+img:show

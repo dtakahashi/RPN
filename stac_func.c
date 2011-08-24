@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "stac.h"
 #include "enume.h"
+#include "draw.h"
 
 void stack_func(FILE *in_file)
 {
-    int i, num;
+    int i, num, data;
     unsigned short num1, num2;
     unsigned short buf[256];
 
@@ -49,8 +50,57 @@ void stack_func(FILE *in_file)
             num1 = stack_pop();
             num2 = stack_pop();
             stack_push(num2 % num1);
+        case DNP:
+            num1 = stack_pop();
+            stack_push(num1);
+            stack_push(num1);
+            break;
+        case ROT:
+            num1 = stack_pop();
+            num2 = stack_pop();
+            stack_push(num1);
+            stack_push(num2);
+            break;
+        case SHOW:
+            show();
+            putchar('\n');
+            break;
+        case INIT:
+            init();
+            break;
+        case SAVE:
+            data = buf[i + 1];
+            save(save_name[data]);
+            i++;
+            break;
+        case LOAD:
+            data = buf[i + 1];
+            load(load_name[data]);
+            i++;
+            break;
+        case POINT:
+            point(buf[i + 1], buf[i + 2], buf[i + 3]);
+            i += 3;
+            break;
+        case LINE:
+            draw_line(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
+            i += 5;
+            break;
+        case RECT:
+            rect(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
+            i += 5;
+            break;
+        case FILL_RECT:
+            fill_rect(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
+            i += 5;
+            break;
+        case TRI:
+            draw_tri(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5],
+                     buf[i + 6], buf[i + 7]);
+            i += 7;
+            break;
         default:
-            printf("*************error\n");
+            printf("*************error \n");
             break;
         }
     }

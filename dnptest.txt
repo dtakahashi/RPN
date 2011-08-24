@@ -1,0 +1,9 @@
+push 100
+dnp
+print
+print
+push 200
+push 300
+rot
+print
+print

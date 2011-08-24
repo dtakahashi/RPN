@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     in_file = fopen(argv[1], "rb");
     if(in_file == NULL)           
     {
-        fprintf(stderr, "Error:file not found\n");
+        fprintf(stderr, "Error :File not found\n");
         exit(1);
     }
 

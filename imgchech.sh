@@ -1,6 +1,6 @@
 TEMP_FILE=result-$$.txt
-./stac.sh > $TEMP_FILE
-diff ok.txt $TEMP_FILE
+./img.sh > $TEMP_FILE
+diff okimg.txt $TEMP_FILE
 if [ $? = 0 ]; then
     echo OK
 else
@@ -9,8 +9,8 @@ fi
 rm $TEMP_FILE
 
 TEMP_FILE=result-$$.txt
-./binary_text test.bin $TEMP_FILE
-diff text.txt $TEMP_FILE
+./binary_text img.bin $TEMP_FILE
+diff img.txt $TEMP_FILE
 if [ $? = 0 ]; then
     echo OK
 else

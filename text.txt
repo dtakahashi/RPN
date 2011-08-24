@@ -1,12 +1,9 @@
 nop
-push 256
+push 1024
+push 128
+push 300
+push 200
+pop
 print
-push 2048
-push 2048
 +
-push 312
-push 512
--
 print
-print
-nop
