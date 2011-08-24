@@ -55,46 +55,39 @@ int main(int argc, char *argv[])
         }else if(strcmp(buf, "%\n") == 0){
             fputc(MOD, out_file);
             fputc(0, out_file);
-        }else if(strcmp(buf, "dnp\n") == 0){
-            fputc(DNP, out_file);
+        }else if(strcmp(buf, "dup\n") == 0){
+            fputc(DUP, out_file);
             fputc(0, out_file);
         }else if(strcmp(buf, "rot\n") == 0){
             fputc(ROT, out_file);
             fputc(0, out_file);
-        }else if(strcmp(buf, "img:show\n") == 0){
+        }else if(strcmp(buf, "image:show\n") == 0){
             fputc(SHOW, out_file);
             fputc(0, out_file);
-        }else if(strcmp(buf, "img:init\n") == 0){
+        }else if(strcmp(buf, "image:init\n") == 0){
             fputc(INIT, out_file);
             fputc(0, out_file);
-        }else if(strncmp(buf, "img:save", 8) == 0){
+        }else if(strcmp(buf, "image:save\n") == 0){
             fputc(SAVE, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:load", 8) == 0){
+        }else if(strcmp(buf, "image:load\n") == 0){
             fputc(LOAD, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:point", 9) == 0){
+        }else if(strcmp(buf, "image:point\n") == 0){
             fputc(POINT, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:line",  8) == 0){
+        }else if(strcmp(buf, "image:line\n") == 0){
             fputc(LINE, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:rect", 8) == 0){
+        }else if(strcmp(buf, "image:rect\n") == 0){
             fputc(RECT, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:fill_rect", 13) == 0){
+        }else if(strcmp(buf, "image:fill_rect\n") == 0){
             fputc(FILL_RECT, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
-        }else if(strncmp(buf, "img:tri", 7) == 0){
+        }else if(strcmp(buf, "image:tri\n") == 0){
             fputc(TRI, out_file);
             fputc(0, out_file);
-            double_point(buf, out_file);
         }else{
             printf("********************error %s\n", buf);
         }

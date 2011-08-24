@@ -5,7 +5,9 @@
 
 void stack_func(FILE *in_file)
 {
-    int i, num, data;
+    int i, j, num;
+    char name[][100] = {"result.txt", "image.txt", "graphic.txt"}; 
+    unsigned short num_stack[128];
     unsigned short num1, num2;
     unsigned short buf[256];
 
@@ -50,7 +52,7 @@ void stack_func(FILE *in_file)
             num1 = stack_pop();
             num2 = stack_pop();
             stack_push(num2 % num1);
-        case DNP:
+        case DUP:
             num1 = stack_pop();
             stack_push(num1);
             stack_push(num1);
@@ -69,35 +71,46 @@ void stack_func(FILE *in_file)
             init();
             break;
         case SAVE:
-            data = buf[i + 1];
-            save(save_name[data]);
-            i++;
+            num1 = stack_pop();
+            save(name[num1]);
             break;
         case LOAD:
-            data = buf[i + 1];
-            load(load_name[data]);
-            i++;
+            num1 = stack_pop();
+            load(name[num1]);
             break;
         case POINT:
-            point(buf[i + 1], buf[i + 2], buf[i + 3]);
-            i += 3;
+            for(j = 0; j < 3; j++){
+                num_stack[j] = stack_pop();
+            }
+            point(num_stack[2], num_stack[1], num_stack[0]);
             break;
         case LINE:
-            draw_line(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
-            i += 5;
+            for(j = 0; j < 5; j++){
+                num_stack[j] = stack_pop();
+            }
+            draw_line(num_stack[4], num_stack[3], num_stack[2], 
+                      num_stack[1], num_stack[0]);
             break;
         case RECT:
-            rect(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
-            i += 5;
+            for(j = 0; j < 5; j++){
+                num_stack[j] = stack_pop();
+            }
+            rect(num_stack[4], num_stack[3], num_stack[2],
+                 num_stack[1], num_stack[0]);
             break;
         case FILL_RECT:
-            fill_rect(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5]);
-            i += 5;
+            for(j = 0; j < 5; j++){
+                num_stack[j] = stack_pop();
+            }
+            fill_rect(num_stack[4], num_stack[3], num_stack[2],
+                      num_stack[1], num_stack[0]);
             break;
         case TRI:
-            draw_tri(buf[i + 1], buf[i + 2], buf[i + 3], buf[i + 4], buf[i + 5],
-                     buf[i + 6], buf[i + 7]);
-            i += 7;
+            for(j = 0; j < 7; j++){
+                num_stack[j] = stack_pop();
+            }
+            draw_tri(num_stack[6], num_stack[5], num_stack[4], 
+                     num_stack[3], num_stack[2], num_stack[1], num_stack[0]);
             break;
         default:
             printf("*************error \n");

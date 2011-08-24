@@ -1,0 +1,45 @@
+push 10
+push 10
+push 20
+push 20
+push 100
+image:line
+image:show
+image:init
+push 20
+push 20
+push 25
+push 25
+push 200
+image:rect
+image:show
+image:init
+push 1
+push 1
+push 9
+push 9
+push 150
+image:fill_rect
+image:show
+image:init
+push 10
+push 10
+push 30
+push 30
+push 10
+push 30
+push 250
+image:tri
+image:show
+push 20
+push 20
+push 25
+push 25
+push 200
+image:rect
+push 1
+image:save
+image:init
+push 1
+image:load
+image:show

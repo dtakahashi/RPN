@@ -8,7 +8,7 @@ enum binary{
     MULTI,
     DIVI,
     MOD,
-    DNP,
+    DUP,
     ROT,
     SHOW,
     INIT,
@@ -21,5 +21,3 @@ enum binary{
     TRI
 };
 
-char save_name[][100] = {"result.txt", "image.txt", "graphic.txt"}; 
-char load_name[][100] = {"result.txt", "image.txt", "graphic.txt"}; 
